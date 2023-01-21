@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>My Contact</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="center-align">My Contacts</h1>
+      <input type="text" Id="filterInput" placeholder="Search Names.." />
+      <ul id="names" class="collection with-header">
+        <li class="collection-header">
+          <h5>A</h5>
+        </li>
+        <li class="collection-item"><a href="#">Abe</a></li>
+        <li class="collection-item"><a href="#">Ajay</a></li>
+        <li class="collection-item"><a href="#">Arun</a></li>
+        <li class="collection-item"><a href="#">Anaa</a></li>
+        <li class="collection-header">
+          <h5>B</h5>
+        </li>
+        <li class="collection-item"><a href="#">Brother</a></li>
+        <li class="collection-item"><a href="#">Bhim</a></li>
+        <li class="collection-item"><a href="#">Bharat</a></li>
+        <li class="collection-item"><a href="#">Bhajanpura</a></li>
+        <li class="collection-header">
+          <h5>C</h5>
+        </li>
+        <li class="collection-item"><a href="#">Cemara</a></li>
+        <li class="collection-item"><a href="#">Chamar</a></li>
+        <li class="collection-item"><a href="#">cat</a></li>
+        <li class="collection-item"><a href="#">cow</a></li>
+      </ul>
+    </div>
+    <script>
+        let filterInput = document.getElementById('filterInput');
+        filterInput.addEventListener('keyup', filterNames);
+
+        function filterNames(){
+            let filterValue = document.getElementById('filterInput').value.toUpperCase();
+            let ul = document.getElementById('names');
+            let li = ul.querySelectorAll('li.collection-item');
+            
+            for(let i = 0; i < li.length; i++){
+                let a = li[i].getElementsByTagName('a')[0];
+                if(a.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+                    li[i].style.display = 'block';
+                }else{
+                    li[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+  </body>
+</html>
